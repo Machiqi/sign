@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    /* Add some basic styling to your calculator */
+    input {
+      width: 50px;
+      padding: 5px;
+      margin: 5px;
+    }
+    /*<input type="text" class="display" readonly>*/
+  </style>
+</head>
+<body>
+
+  <input type="text" class="display" readonly>
+  <br>
+  <button onclick="appendToDisplay('1')">1</button>
+  <button onclick="appendToDisplay('2')">2</button>
+  <button onclick="appendToDisplay('+')">+</button>
+  <button onclick="calculate()">=</button>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementByClass('.display').value += value;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(document.getElementByClass('.display').value);
+        document.getElementByClass('.display').value = result;
+      } catch (error) {
+        document.getElementByClass('.display').value = 'Error';
+      }
+    }
+  </script>
+
+</body>
+</html>
